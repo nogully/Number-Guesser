@@ -1,0 +1,110 @@
+body {
+  font-family: Open Sans, sans-serif;
+  background-color: white;
+  color: #404041;
+}
+
+header {
+  background: #404041;
+  color: white;
+  font-size: 25pt;
+  height: 50px;
+  margin: auto;
+  position: top;
+  padding-top: 15px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+strong {
+  color: #ED458B;
+  font-size: 25pt;
+  font-weight: 700;
+}
+
+header h1 {
+  color: #E6E7E8;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  margin: auto;
+  font-weight: 300;  
+}
+
+h2 {
+  color: #404041;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  margin: auto;  
+  font-size: 16pt;
+}
+
+h3 {
+  font-size: 20pt;
+}
+
+input {
+  display: block;    
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 15pt;
+}
+
+fieldset{
+  display: inline-block;
+}
+
+button {
+  background: #929497;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: inline-block; 
+  margin-bottom: 30px;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+  font-weight: 300;
+}
+
+button:hover {
+  background: #EB008B;
+  color: white;
+  margin-bottom: 30px;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+}
+
+button:disabled {
+  background: #D0D2D3;
+  color: white;
+  margin-bottom: 30px;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+}
+
+#guessText {
+  color: #ED458B;
+  font-size: 50pt;
+}
+
+#clueText {
+ 
+}
+
+
+p {    
+  margin-bottom: 30px;
+  font-size: 16pt;
+}
+
+div {
+  text-align:center;
+  margin: auto;
+}
+
+input minmax {
+  display: inline-block;
+}

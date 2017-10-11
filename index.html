@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,300" rel="stylesheet">
+  </head>
+
+  <body>
+    <header style="text-align:center;">
+      <h1><strong>Number </strong>Guesser</h1>
+    </header>
+
+   <form style="text-align:center;">
+
+  <fieldset>
+        <input class="minMax" id="minInput" placeholder="Minimum" type="number">
+        <input class="minMax" id="maxInput" placeholder="Maximum" type="number">
+        <button class="btn" id="minMaxButton" label="minMaxButton" disabled="true">Generate Number</button>
+  </fieldset>
+      <div><h2>What is the number?</h2>
+          <input class="inputField" id="guessInputText" placeholder="Enter your guess" type="number" label="input">
+
+          <button class="btn" id="guessButton" disabled="true">Guess</button>
+
+          <button class="btn" id="clearButton" disabled="true">Clear</button>
+      </div>
+
+
+    <p id="lastGuess">
+          <p>Your last guess was</p>
+          <p id="guessText"></p>
+          <p id="clueText"></p>
+     
+  
+
+      <button class="btn" id="resetButton" disabled="true">Reset</button>
+
+        </form>
+
+        <div id="corral"> </div>
+
+        <script src="javascript.js"></script>
+  </body>
+</html>
