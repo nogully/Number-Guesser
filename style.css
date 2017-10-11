@@ -105,6 +105,10 @@ div {
   margin: auto;
 }
 
-input minmax {
+#lastGuess{
+  height: 180px;
+}
+
+.minmax {
   display: inline-block;
 }
