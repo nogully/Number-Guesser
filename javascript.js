@@ -11,16 +11,17 @@ var guessInput = document.getElementById("guessInputText"); // grabbing the stri
 var userMin = document.getElementById("minInput"); // min input string
 var userMax = document.getElementById("maxInput"); // max input string
 var genNumber = document.getElementById('minMaxButton'); // number generator button
-var realMin = 0; // default value for Min - gets reassigned in genNumber
-var realMax = 100; // default value for Max - gets reassigned in genNumber
+var realMin; // default value for Min - gets reassigned in genNumber
+var realMax; // default value for Max - gets reassigned in genNumber
 var correctNumber = getRandomArbitrary(0, 100);
 
 
 
 //   E V E N T   L I S T E N E R S
 guessBtn.addEventListener('click', function(){
-  //realMin = getMinNumber(userMin); 
-  //realMax = getMaxNumber(userMax);
+  //event.preventDefault();
+  // realMin = getMinNumber(userMin); 
+  // realMax = getMaxNumber(userMax);
   //minMaxCheck(realMin, realMax);
   guessInputSubmit();
 });
@@ -34,10 +35,14 @@ userMax.addEventListener('keyup',function(){
   getMaxNumber(userMax);
 });
 genNumber.addEventListener('click', function(){
+  event.preventDefault();
   realMin = getMinNumber(userMin); 
   realMax = getMaxNumber(userMax);
   correctNumber = getRandomArbitrary(realMin, realMax);
+  document.querySelector('#guessText').textContent = '';
+  document.querySelector('#clueText').textContent = " ";
 });
+
 
 //   FUNCTIONS THAT make min and max strings into numbers, called up there ^^
 function getMinNumber(string){
@@ -47,12 +52,14 @@ function getMinNumber(string){
   return minInt;
 }
 
+
 function getMaxNumber(string){
   var maxInt = parseInt(string.value);
   console.log("Your max is " + maxInt);
   document.querySelector('#printMax').textContent = string.value;
   return maxInt;
 }
+
 
 //   ENABLE THE BUTTONS WHEN TEXT IS ENTERED
 function enableButtons(){
@@ -68,20 +75,6 @@ function getRandomArbitrary(min, max) {
   return randomNumber;
 }
 
-//   CHECK THAT THE GUESS IS IN RANGE 
-function minMaxCheck(min, max) {
-    if (guessedNumber < min )  {  
-        alert("Please enter a number greater than " + min); 
-    }
-    else if (guessedNumber > max) {
-        alert("Please enter a number less than " + max); 
-    }
-    else if ((guessedNumber > min) && (guessedNumber < max)){
-        console.log("Nice range.")
-    }
-    else 
-        console.log("wtf");
-   }
 
 //   WHAT HAPPENS WHEN YOU HIT THE 'GUESS' BUTTON   \\
 function guessInputSubmit(){
@@ -90,6 +83,21 @@ function guessInputSubmit(){
   console.log("You guessed " + guessedNumber);
   console.log("Which is a " + typeof guessedNumber);  
   document.querySelector('#guessText').innerText = guessedNumber;
+
+//   CHECKING THE RANGE
+  if (guessedNumber < realMin )  {  
+      alert("Please enter a number greater than " + realMin); 
+  }
+  else if (guessedNumber > realMax) {
+      alert("Please enter a number less than " + realMax); 
+  }
+  else if ((guessedNumber >= realMin) && (guessedNumber <= realMax)){
+      console.log("Nice range.")
+  }
+  else 
+      console.log("wtf");
+  
+
 //   COMPARING THE USER NUMBER AND RANDOMLY GENERATED NUMBER   \\
   if (guessedNumber > correctNumber) {
    document.querySelector('#clueText').innerText = "That's too high!";
@@ -101,6 +109,11 @@ function guessInputSubmit(){
     document.querySelector('#clueText').innerText = "HELL YEAH!";
     var unicornCorral = document.getElementById('corral');
     unicornCorral.insertAdjacentHTML('afterbegin', '<img src="unicorn.gif" width="200px" margin="auto">');
+    var newMin = realMin - 10;
+    var newMax = realMax + 10;
+    console.log("New min is " + newMin + "," + "new max is " + newMax);
+    document.querySelector('#printMin').innerText = newMin;
+    document.querySelector('#printMax').innerText = newMax;
   }
   else 
     alert("Please enter a number.");
@@ -130,6 +143,23 @@ function resetButtonSubmit(event) {
 //userMin.addEventListener('keyup', getMinNumber); // this is running function getMinNumber upon keyup
 //var userMinNumber = getMinNumber(userMin);
 //var userMaxNumber = getMaxNumber(userMax);
+//   CHECK THAT THE GUESS IS IN RANGE 
+// function minMaxCheck(min, max) {
+//     if (guessedNumber < min )  {  
+//         alert("Please enter a number greater than " + min); 
+//     }
+//     else if (guessedNumber > max) {
+//         alert("Please enter a number less than " + max); 
+//     }
+//     else if ((guessedNumber > min) && (guessedNumber < max)){
+//         console.log("Nice range.")
+//     }
+//     else 
+//         console.log("wtf");
+//    }
+// function changeMinMax(){
+//   if () {}
+// }
 //
 //   HERE IS THE BOTTOM OF THE DOCUMENT!!!   \\
 //          THANK YOU FOR PLAYING!!!         \\
