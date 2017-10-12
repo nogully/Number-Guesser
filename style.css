@@ -90,11 +90,6 @@ button:disabled {
   font-size: 50pt;
 }
 
-#clueText {
- 
-}
-
-
 p {    
   margin-bottom: 30px;
   font-size: 16pt;
@@ -109,6 +104,3 @@ div {
   height: 180px;
 }
 
-.minmax {
-  display: inline-block;
-}

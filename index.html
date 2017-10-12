@@ -10,25 +10,26 @@
     <header style="text-align:center;">
       <h1><strong>Number </strong>Guesser</h1>
     </header>
+    <title>Number Guesser Game</title>
 
   <form style="text-align:center;">
 
-    <div id="guessDiv">
+    <div id="guessDiv"> <label for="guess question"></label>
         <h2>Guess a number between </h2> 
         <h2 id="printMin">0</h2>  <!-- the minimum entered number! -->
         <h2>and </h2>
         <h2 id="printMax">100</h2>  <!-- the maximum entered number! -->
 
 
-        <input class="inputField" id="guessInputText" placeholder="Enter your guess" type="number" label="input">
+        <input class="inputField" id="guessInputText" placeholder="Enter your guess" type="number"><label for="guessInputText"></label>
 
-        <button class="btn" id="guessButton" disabled="true">Guess</button>
+        <button class="btn" id="guessButton" disabled="true">Guess</button><label for="guessButton"></label>
 
-        <button class="btn" id="clearButton" disabled="true">Clear</button>
+        <button class="btn" id="clearButton" disabled="true">Clear</button><label for="clearButton"></label>
     </div>
 
 
-    <div id="lastGuess">
+    <div id="lastGuess"> 
           <p>Your last guess was</p>
           <p id="guessText"></p> <!-- what the user guessed -->
           <p id="clueText"></p>  <!-- what their clue is -->
@@ -38,15 +39,15 @@
     <div> Or set your own number range: <!-- set a new range -->
         <input class="minMax" id="minInput" placeholder="Minimum" type="number">
         <input class="minMax" id="maxInput" placeholder="Maximum" type="number">
-        <button class="btn" id="minMaxButton" label="minMaxButton">Generate New Number</button>
+        <button class="btn" id="minMaxButton" label="minMaxButton" disabled="true">Generate New Number</button>
 
     </div><br/>
 
-    <button class="btn" id="resetButton" disabled="true">Reset</button>
+    <button class="btn" id="resetButton" disabled="true">Reset</button><label for="resetButton"></label>
 
   </form>
 
-        <div id="corral"> </div> <!-- SPARKLY UNICORN GIF GOES HERE -->
+        <div id="corral"> </div> <label for="corral"></label><!-- SPARKLY UNICORN GIF GOES HERE -->
 
         <script src="javascript.js"></script>
   </body>
