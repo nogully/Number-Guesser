@@ -4,25 +4,22 @@
 
 
 //   V A R I A B L E S 
-var guessBtn = document.getElementById('guessButton'); //this is just grabbing the button
-var clearButton = document.getElementById("clearButton"); // clear button
-var resetButton = document.getElementById("resetButton"); // reset button
-var guessInput = document.getElementById("guessInputText"); // grabbing the string from the input field
-var userMin = document.getElementById("minInput"); // min input string
-var userMax = document.getElementById("maxInput"); // max input string
-var genNumber = document.getElementById('minMaxButton'); // number generator button
-var realMin; // default value for Min - gets reassigned in genNumber
-var realMax; // default value for Max - gets reassigned in genNumber
-var correctNumber = getRandomArbitrary(0, 100);
+var guessBtn = document.getElementById('guessButton');        // grabbing the guess button
+var clearButton = document.getElementById("clearButton");     // clear button
+var resetButton = document.getElementById("resetButton");     // reset button
+var guessInput = document.getElementById("guessInputText");   // grabbing the string from the input field
+var userMin = document.getElementById("minInput");            // min input string
+var userMax = document.getElementById("maxInput");            // max input string
+var genNumber = document.getElementById('minMaxButton');      // number generator button
+var realMin = 0;            // default value for Min - gets reassigned in genNumber
+var realMax = 100;          // default value for Max - gets reassigned in genNumber
+var correctNumber = getRandomArbitrary(0, 100);               // value of secret number
+//var wins = 0;
 
 
 
 //   E V E N T   L I S T E N E R S
-guessBtn.addEventListener('click', function(){
-  //event.preventDefault();
-  // realMin = getMinNumber(userMin); 
-  // realMax = getMaxNumber(userMax);
-  //minMaxCheck(realMin, realMax);
+guessBtn.addEventListener('click', function(){ 
   guessInputSubmit();
 });
 clearButton.addEventListener('click', clearInputSubmit);
@@ -44,7 +41,8 @@ genNumber.addEventListener('click', function(){
 });
 
 
-//   FUNCTIONS THAT make min and max strings into numbers, called up there ^^
+//   F U N C T I O N S   C A L L E D   B Y   E V E N T S
+//   MAKE THE MIN STRING INTO A NUMBER
 function getMinNumber(string){
   var minInt = parseInt(string.value);
   console.log("Your min is " + minInt);
@@ -53,6 +51,7 @@ function getMinNumber(string){
 }
 
 
+//   MAKE THE MAX STRING INTO A NUMBER
 function getMaxNumber(string){
   var maxInt = parseInt(string.value);
   console.log("Your max is " + maxInt);
@@ -67,6 +66,7 @@ function enableButtons(){
   document.getElementById('clearButton').disabled = false;
   document.getElementById('resetButton').disabled = false;
 }
+
 
 //   GENERATE A RANDOM WHOLE NUMBER
 function getRandomArbitrary(min, max) {
@@ -84,7 +84,7 @@ function guessInputSubmit(){
   console.log("Which is a " + typeof guessedNumber);  
   document.querySelector('#guessText').innerText = guessedNumber;
 
-//   CHECKING THE RANGE
+  //   CHECKING THE RANGE
   if (guessedNumber < realMin )  {  
       alert("Please enter a number greater than " + realMin); 
   }
@@ -98,7 +98,7 @@ function guessInputSubmit(){
       console.log("wtf");
   
 
-//   COMPARING THE USER NUMBER AND RANDOMLY GENERATED NUMBER   \\
+  //   COMPARING THE USER NUMBER AND RANDOMLY GENERATED NUMBER   \\
   if (guessedNumber > correctNumber) {
    document.querySelector('#clueText').innerText = "That's too high!";
   }
@@ -138,7 +138,7 @@ function resetButtonSubmit(event) {
   document.getElementById("resetButton").disabled = true;
 }
 
-//  |  |  |  |  C O D E   J A I L  |  |  |  |  
+//  |  |  |  |  |  |  C O D E   J A I L  |  |  |  |  |  |  |  
 //userMax.addEventListener('keyup', getMaxNumber);
 //userMin.addEventListener('keyup', getMinNumber); // this is running function getMinNumber upon keyup
 //var userMinNumber = getMinNumber(userMin);
@@ -160,6 +160,10 @@ function resetButtonSubmit(event) {
 // function changeMinMax(){
 //   if () {}
 // }
+  //event.preventDefault();
+  // realMin = getMinNumber(userMin); 
+  // realMax = getMaxNumber(userMax);
+  //minMaxCheck(realMin, realMax);
 //
 //   HERE IS THE BOTTOM OF THE DOCUMENT!!!   \\
 //          THANK YOU FOR PLAYING!!!         \\
